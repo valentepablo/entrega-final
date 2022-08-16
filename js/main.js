@@ -128,25 +128,29 @@ const filtrarLibros = (e) => {
 
   catalogo.innerHTML = '';
 
-  librosFiltrados.forEach((libro) => {
-    let elemento = document.createElement('div');
-    elemento.id = `card-${libro.id}`;
-    elemento.className = 'card';
-    elemento.innerHTML = `
-      <img class="card__img" src="images/${libro.imagen}">
-      <div class="card__info">
-        <p class="card__nombre">${libro.nombre}</p>
-        <p class="card__precio">$${libro.precio}</p>
-      </div>
-      <button class="card__btn">
-        <span class="material-icons">
-          add_shopping_cart
-        </span>
-      </button>`;
+  if (librosFiltrados.length === 0) {
+    catalogo.innerHTML = `<h2>No se encontraron productos con la busqueda: "${value}"`;
+  } else {
+    librosFiltrados.forEach((libro) => {
+      let elemento = document.createElement('div');
+      elemento.id = `card-${libro.id}`;
+      elemento.className = 'card';
+      elemento.innerHTML = `
+        <img class="card__img" src="images/${libro.imagen}">
+        <div class="card__info">
+          <p class="card__nombre">${libro.nombre}</p>
+          <p class="card__precio">$${libro.precio}</p>
+        </div>
+        <button class="card__btn">
+          <span class="material-icons">
+            add_shopping_cart
+          </span>
+        </button>`;
 
-    catalogo.appendChild(elemento);
-  });
-  cargarLibrosCarrito();
+      catalogo.appendChild(elemento);
+      cargarLibrosCarrito();
+    });
+  }
 };
 
 const agregarLibro = (libro) => {
