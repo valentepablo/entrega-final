@@ -138,7 +138,11 @@ const filtrarLibros = (e) => {
         <p class="card__nombre">${libro.nombre}</p>
         <p class="card__precio">$${libro.precio}</p>
       </div>
-      <button class="card__btn">Añadir al carrito</button>`;
+      <button class="card__btn">
+        <span class="material-icons">
+          add_shopping_cart
+        </span>
+      </button>`;
 
     catalogo.appendChild(elemento);
   });
