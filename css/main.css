@@ -32,7 +32,7 @@ img {
   justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .catalogo {
     gap: 0.5em;
     text-align: left;
@@ -58,7 +58,7 @@ img {
   transition: all 0.15s ease-in;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .filtros [name='busqueda'] {
     width: 80%;
   }
@@ -128,7 +128,7 @@ img {
 
 /********** CARD MEDIAQUERIES **********/
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 480px) {
   .card {
     width: 200px;
     padding: 1.5em 1em;
@@ -225,7 +225,7 @@ img {
   transition: all 0.25s ease-in;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .carrito-icon {
     top: 0;
     right: 0;
