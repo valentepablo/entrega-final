@@ -162,6 +162,11 @@ const cargarLibrosCarrito = () => {
     btn.addEventListener('click', (e) => {
       let itemId = parseInt(e.target.closest('.card').id.slice(5));
 
+      btnCarrito.classList.add('agregado');
+      setTimeout(() => {
+        btnCarrito.classList.remove('agregado');
+      }, 1000);
+
       agregarLibro(buscarLibro(itemId));
       guardarProductosStorage();
       generarHtmlCarrito();

@@ -166,7 +166,7 @@ img {
 
   .card button:active {
     transform: translateY(3px);
-    background-color: green;
+    background-color: limegreen;
   }
 
   .card__img {
@@ -221,6 +221,23 @@ img {
   border: 1px solid transparent;
   padding: 0.25em;
   transition: all 0.25s ease-in;
+}
+
+.carrito-icon.agregado {
+  animation: pulso 1s ease-in;
+}
+
+@keyframes pulso {
+  0% {
+    color: #cbd5e1;
+  }
+  50% {
+    color: limegreen;
+  }
+
+  100% {
+    color: #cbd5e1;
+  }
 }
 
 .carrito-icon:hover {
