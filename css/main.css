@@ -2,10 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: inherit;
   color: #cbd5e1;
   background-color: #1d1e22;
 
@@ -25,11 +26,17 @@ img {
 
 .catalogo {
   margin-block: 2em;
-
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
   justify-content: center;
+}
+
+@media screen and (max-width: 360px) {
+  .catalogo {
+    gap: 0.5em;
+    text-align: left;
+  }
 }
 
 /********** FILTROS STYLING **********/
@@ -51,6 +58,12 @@ img {
   transition: all 0.15s ease-in;
 }
 
+@media screen and (max-width: 360px) {
+  .filtros [name='busqueda'] {
+    width: 80%;
+  }
+}
+
 .filtros [name='busqueda']:hover {
   background-color: #3a3a3a;
 }
@@ -62,63 +75,119 @@ img {
 /********** CARD STYLING **********/
 
 .card {
-  width: 200px;
-  padding: 1.5em 1em;
   display: flex;
-  flex-direction: column;
+  gap: 0.5em;
   align-items: center;
-  gap: 1em;
-  border: 1px solid #333;
-  background-color: #111;
-  border-radius: 3px;
-  transition: all 0.15s ease-in;
-}
-
-.card:hover {
-  background-color: #131313;
-  transform: translateY(-3px);
-}
-
-.card button {
-  padding: 0.75em 0.75em;
-  border-radius: 3px;
-  background-color: #222;
-  border: 1px solid #333;
-  color: #aaa;
-  font-weight: bold;
-  font-size: 0.85em;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.15s ease-in;
-
-  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
-    drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
-
-  box-shadow: inset 0px 0px 10px -5px #000000;
-}
-
-.card button:hover {
-  background-color: #333;
-  color: #bbb;
+  width: 100%;
+  padding: 0.5em;
   border: 1px solid #444;
+  background-color: #333;
 }
 
-.card button:active {
-  transform: translateY(3px);
-  background-color: green;
+/* .card:not(:last-child) {
+  border-bottom: 1px solid #444;
+} */
+
+.card__img {
+  height: 75px;
+  width: 45px;
 }
 
 .card__info {
-  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.2em;
 }
 
 .card__nombre {
-  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: 700;
 }
 
 .card__precio {
-  margin-top: 1em;
-  font-weight: 600;
+  font-size: 0.85em;
+}
+
+.card__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  background-color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  padding: 0.5em;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #444;
+  transition: all 0.15s ease-in;
+}
+
+/********** CARD MEDIAQUERIES **********/
+
+@media screen and (min-width: 360px) {
+  .card {
+    width: 200px;
+    padding: 1.5em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid #333;
+    background-color: #111;
+    border-radius: 3px;
+    transition: all 0.15s ease-in;
+  }
+
+  .card:hover {
+    background-color: #131313;
+    transform: translateY(-3px);
+  }
+
+  .card button {
+    padding: 0.75em 0.75em;
+    border-radius: 3px;
+    background-color: #222;
+    border: 1px solid #333;
+    color: #aaa;
+    font-weight: bold;
+    font-size: 0.85em;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.15s ease-in;
+
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+      drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+
+    box-shadow: inset 0px 0px 10px -5px #000000;
+  }
+
+  .card button:hover {
+    background-color: #333;
+    color: #bbb;
+    border: 1px solid #444;
+  }
+
+  .card button:active {
+    transform: translateY(3px);
+    background-color: green;
+  }
+
+  .card__info {
+    font-size: 14px;
+  }
+
+  .card__nombre {
+    font-weight: 400;
+  }
+
+  .card__precio {
+    margin-top: 1em;
+    font-weight: 600;
+  }
 }
 
 /********** CART STYLING **********/
@@ -156,6 +225,13 @@ img {
   transition: all 0.25s ease-in;
 }
 
+@media screen and (max-width: 360px) {
+  .carrito-icon {
+    top: 0;
+    right: 0;
+  }
+}
+
 .carrito-icon:hover {
   background-color: #222;
   border: 1px solid #333;
@@ -167,7 +243,6 @@ img {
   text-align: center;
   font-size: 1.1em;
   padding: 0.5em;
-  margin-top: 9px;
   border: 1px solid #444;
 }
 
@@ -175,11 +250,16 @@ img {
   background-color: #222;
   border: 1px solid #444;
   padding: 0.5em;
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 .total-carrito span {
+  display: block;
   font-size: 12px;
+}
+
+.total-carrito p {
+  margin-top: 0.5em;
 }
 
 /********** CART PRODUCT STYLING **********/

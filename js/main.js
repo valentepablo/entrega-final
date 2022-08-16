@@ -78,7 +78,15 @@ class Libro {
   }
 }
 
-const carrito = [];
+const guardarProductosStorage = () => {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+};
+
+const cargarProductosStorage = () => {
+  return JSON.parse(localStorage.getItem('carrito')) || [];
+};
+
+const carrito = cargarProductosStorage();
 
 const generarHtmlCatalogo = () => {
   const inputBusqueda = document.querySelector('.filtros [name="busqueda"]');
@@ -95,8 +103,11 @@ const generarHtmlCatalogo = () => {
       <div class="card__info">
         <p class="card__nombre">${libro.nombre}</p>
         <p class="card__precio">$${libro.precio}</p>
-      </div>
-      <button class="card__btn">Añadir al carrito</button>`;
+      </div>      
+      <button class="card__btn"><span class="material-icons">
+      add_shopping_cart
+      </span></button>
+      `;
 
     catalogo.appendChild(elemento);
   });
@@ -150,6 +161,7 @@ const cargarLibrosCarrito = () => {
       let itemId = parseInt(e.target.closest('.card').id.slice(5));
 
       agregarLibro(buscarLibro(itemId));
+      guardarProductosStorage();
       generarHtmlCarrito();
     });
   });
@@ -174,6 +186,7 @@ const eliminarLibrosCarrito = () => {
       let itemId = parseInt(e.target.closest('.product-container').id.slice(9));
 
       eliminarLibro(itemId);
+      guardarProductosStorage();
       generarHtmlCarrito();
     });
   });
@@ -183,46 +196,49 @@ const generarHtmlCarrito = () => {
   let contenedorCarrito = document.querySelector('.contenedor-carrito');
   let totalCarrito = document.querySelector('.total-carrito');
 
-  if (carrito.length === 0) {
+  const productosCarrito = cargarProductosStorage();
+
+  if (productosCarrito.length === 0) {
     contenedorCarrito.innerHTML = 'No hay productos en tu carrito.';
   } else {
     contenedorCarrito.innerHTML = '';
+    productosCarrito.forEach((producto) => {
+      let elemento = document.createElement('div');
+      elemento.id = `producto-${producto.id}`;
+      elemento.className = 'product-container';
+      elemento.innerHTML = `
+          <img class="libro__img" src="images/${producto.imagen}">
+          <div class="libro__info">
+            <p class="libro__nombre">${producto.nombre}</p>
+            <p class="libro__precio">$${producto.precio}</p>
+            <p class="libro__cantidad">Cantidad: ${producto.cantidad}</p>
+          </div>
+          <button class="libro__eliminar">&times</button>
+        `;
+      contenedorCarrito.appendChild(elemento);
+    });
   }
-
-  carrito.forEach((producto) => {
-    let elemento = document.createElement('div');
-    elemento.id = `producto-${producto.id}`;
-    elemento.className = 'product-container';
-    elemento.innerHTML = `
-        <img class="libro__img" src="images/${producto.imagen}">
-        <div class="libro__info">
-          <p class="libro__nombre">${producto.nombre}</p>
-          <p class="libro__precio">$${producto.precio}</p>
-          <p class="libro__cantidad">Cantidad: ${producto.cantidad}</p>
-        </div>
-        <button class="libro__eliminar">&times</button>
-      `;
-    contenedorCarrito.appendChild(elemento);
-  });
-
   let total = 0;
   let totalIva = 0;
 
-  for (const item of carrito) {
+  for (const item of productosCarrito) {
     let libro = new Libro(item);
     libro.agregarIva();
     totalIva += libro.precioIva * libro.cantidad;
     total += libro.precio * libro.cantidad;
   }
 
-  totalCarrito.innerHTML = `Total a pagar: $${total.toFixed(2)}
+  totalCarrito.innerHTML = `
+  <span>Precio: $${total.toFixed(2)}</span>
   <span>Impuesto IVA: $${(totalIva - total).toFixed(2)}</span>
+  <p>Total a pagar: $${totalIva.toFixed(2)}</p>
   `;
 
   eliminarLibrosCarrito();
 };
 
 generarHtmlCatalogo();
+generarHtmlCarrito();
 cargarLibrosCarrito();
 
 btnCarrito.addEventListener('click', () => {
