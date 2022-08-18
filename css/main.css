@@ -34,7 +34,7 @@ img {
 
 @media screen and (max-width: 480px) {
   .catalogo {
-    gap: 0.5em;
+    gap: 0.75em;
     text-align: left;
   }
 }
@@ -76,7 +76,7 @@ img {
 
 .card {
   display: flex;
-  gap: 0.5em;
+  gap: 0.75em;
   align-items: center;
   width: 100%;
   padding: 0.5em;
@@ -85,21 +85,24 @@ img {
 }
 
 .card__img {
-  height: 75px;
-  width: 45px;
+  height: 100px;
+  /* height: 75px; */
+  width: 65px;
+  /* width: 45px; */
 }
 
 .card__info {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: 0.2em;
+  gap: 0.5em;
 }
 
 .card__nombre {
   text-transform: uppercase;
   font-size: 0.85em;
   font-weight: 700;
+  width: 85%;
 }
 
 .card__precio {
