@@ -4,13 +4,13 @@ const displayCarrito = document.getElementById('carrito');
 const libros = [
   {
     id: 1,
-    nombre: 'Señor de los Anillos: Comunidad del Anillo',
+    nombre: 'El señor de los Anillos: Comunidad del Anillo',
     precio: 60,
     imagen: 'lotr_comunidad.jpg',
   },
   {
     id: 2,
-    nombre: 'Señor de los Anillos: Las dos torres',
+    nombre: 'El señor de los Anillos: Las dos torres',
     precio: 60,
     imagen: 'lotr_torres.jpg',
   },
@@ -148,8 +148,8 @@ const filtrarLibros = (e) => {
         </button>`;
 
       catalogo.appendChild(elemento);
-      cargarLibrosCarrito();
     });
+    cargarLibrosCarrito();
   }
 };
 
