@@ -1,4 +1,5 @@
 const btnCarrito = document.getElementById('btn-carrito');
+const cerrarCarrito = document.getElementById('cerrar-carrito');
 const displayCarrito = document.getElementById('carrito');
 
 const libros = [
@@ -205,6 +206,20 @@ const eliminarLibrosCarrito = () => {
       generarHtmlCarrito();
     });
   });
+  actualizarCantidadCarrito();
+};
+
+const actualizarCantidadCarrito = () => {
+  let carritoCantidad = document.querySelector('#carrito-cantidad');
+
+  const productosCarrito = cargarProductosStorage();
+  let cantidadProductos = 0;
+
+  productosCarrito.forEach((producto) => {
+    cantidadProductos += producto.cantidad;
+  });
+
+  carritoCantidad.innerHTML = cantidadProductos;
 };
 
 const generarHtmlCarrito = () => {
@@ -257,11 +272,9 @@ generarHtmlCarrito();
 cargarLibrosCarrito();
 
 btnCarrito.addEventListener('click', () => {
-  displayCarrito.classList.toggle('active');
+  displayCarrito.classList.add('active');
+});
 
-  if (displayCarrito.classList.contains('active')) {
-    btnCarrito.innerHTML = 'close';
-  } else {
-    btnCarrito.innerHTML = 'shopping_cart';
-  }
+cerrarCarrito.addEventListener('click', () => {
+  displayCarrito.classList.remove('active');
 });

@@ -35,14 +35,18 @@
     <div id="catalogo" class="catalogo text-center"></div>
     <div id="carrito" class="carrito">
       <div class="total-carrito"></div>
+      <span id="cerrar-carrito" class="material-icons md-36 carrito-icon">
+        close
+      </span>
       <div class="contenedor-carrito">
         <p>No hay productos en tu carrito.</p>
       </div>
     </div>
 
-    <span id="btn-carrito" class="material-icons md-36 carrito-icon"
-      >shopping_cart</span
-    >
+    <span id="btn-carrito" class="material-icons md-36 carrito-icon">
+      shopping_cart
+      <span class="carrito-cantidad" id="carrito-cantidad"></span>
+    </span>
 
     <script src="js/main.js"></script>
   </body>
