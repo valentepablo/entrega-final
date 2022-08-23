@@ -162,6 +162,7 @@ const agregarLibro = (libro) => {
     libro.cantidad = 1;
     carrito.push(libro);
   }
+  notificacionAgregado(libro);
 };
 
 const cargarLibrosCarrito = () => {
@@ -220,6 +221,22 @@ const actualizarCantidadCarrito = () => {
   });
 
   carritoCantidad.innerHTML = cantidadProductos;
+};
+
+const notificacionAgregado = (producto) => {
+  Toastify({
+    text: `Se agrego al carrito: "<b>${producto.nombre}</b>"`,
+    duration: 3000,
+    gravity: 'bottom',
+    position: 'left',
+    stopOnFocus: true,
+    escapeMarkup: false,
+    style: {
+      background: '#333333',
+      border: '1px solid #444444',
+      fontSize: '14px',
+    },
+  }).showToast();
 };
 
 const generarHtmlCarrito = () => {
