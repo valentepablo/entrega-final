@@ -34,11 +34,11 @@ const generarHtmlCatalogo = async () => {
 
   let catalogo = document.querySelector('#catalogo');
 
-  const options = {
-    method: 'GET',
-    headers: { 'content-type': 'application/json' },
-  };
-  let response = await fetch('../db.json', options);
+  // const options = {
+  //   method: 'GET',
+  //   headers: { 'content-type': 'application/json' },
+  // };
+  let response = await fetch('./db.json');
 
   const libros = await response.json();
 
@@ -68,7 +68,7 @@ const filtrarLibros = async (e) => {
   let catalogo = document.querySelector('#catalogo');
   let value = e.target.value;
 
-  const response = await fetch('../db.json');
+  const response = await fetch('./db.json');
   const libros = await response.json();
 
   const librosFiltrados = libros.filter((libro) =>
@@ -103,7 +103,7 @@ const filtrarLibros = async (e) => {
 };
 
 const buscarLibro = async (id) => {
-  const response = await fetch('../db.json');
+  const response = await fetch('./db.json');
   const libros = await response.json();
 
   return libros.find((libro) => libro.id === id);
