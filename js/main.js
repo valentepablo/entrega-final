@@ -187,12 +187,13 @@ const notificacionAgregado = (producto) => {
     position: 'left',
     stopOnFocus: true,
     escapeMarkup: false,
+    className: 'notificacion-agregado',
     style: {
-      background: '#333333',
-      border: '1px solid #444444',
+      background: '#444444',
+      border: '1px solid #555555',
       borderRadius: '3px',
       fontSize: '14px',
-      width: '400px',
+      maxWidth: '100%',
     },
   }).showToast();
 };

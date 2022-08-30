@@ -392,3 +392,15 @@ img {
 .libro__eliminar:hover {
   color: #bbb;
 }
+
+@media screen and (max-width: 480px) {
+  .toastify-right,
+  .toastify-left {
+    margin-left: auto;
+    margin-right: auto;
+    left: 10px;
+    right: 10px;
+    max-width: fit-content;
+    text-align: center;
+  }
+}
