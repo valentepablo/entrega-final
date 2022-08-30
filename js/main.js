@@ -34,7 +34,11 @@ const generarHtmlCatalogo = async () => {
 
   let catalogo = document.querySelector('#catalogo');
 
-  let response = await fetch('../db.json');
+  const options = {
+    method: 'GET',
+    headers: { 'content-type': 'application/json' },
+  };
+  let response = await fetch('../db.json', options);
 
   const libros = await response.json();
 
