@@ -2,75 +2,12 @@ const btnCarrito = document.getElementById('btn-carrito');
 const cerrarCarrito = document.getElementById('cerrar-carrito');
 const displayCarrito = document.getElementById('carrito');
 
-const libros = [
-  {
-    id: 1,
-    nombre: 'El señor de los Anillos: Comunidad del Anillo',
-    precio: 60,
-    imagen: 'lotr_comunidad.jpg',
-  },
-  {
-    id: 2,
-    nombre: 'El señor de los Anillos: Las dos torres',
-    precio: 60,
-    imagen: 'lotr_torres.jpg',
-  },
-  {
-    id: 3,
-    nombre: 'El hobbit',
-    precio: 55,
-    imagen: 'hobbit.jpg',
-  },
-  {
-    id: 4,
-    nombre: 'Harry Potter: El caliz de fuego',
-    precio: 45,
-    imagen: 'hp_caliz.jpg',
-  },
-  {
-    id: 5,
-    nombre: 'Harry Potter: El prisionero de Azkaban',
-    precio: 50,
-    imagen: 'hp_prisionero.jpg',
-  },
-  {
-    id: 6,
-    nombre: 'Las cronicas de Narnia',
-    precio: 35,
-    imagen: 'narnia.jpg',
-  },
-  {
-    id: 7,
-    nombre: 'Game of Thrones',
-    precio: 55,
-    imagen: 'game_of_thrones.jpg',
-  },
-  {
-    id: 8,
-    nombre: 'Alicia en el pais de las maravillas',
-    precio: 40,
-    imagen: 'alicia.jpg',
-  },
-  {
-    id: 9,
-    nombre: 'Moby Dick',
-    precio: 40,
-    imagen: 'moby_dick.jpg',
-  },
-  {
-    id: 10,
-    nombre: 'Los tres mosqueteros',
-    precio: 45,
-    imagen: 'tres_mosqueteros.jpg',
-  },
-];
-
 class Libro {
   constructor(obj) {
     this.nombre = obj.nombre;
     this.id = obj.id;
     this.cantidad = obj.cantidad;
-    this.precio = obj.precio;
+    this.precio = 50;
     this.precioIva = this.agregarIva();
   }
 
@@ -89,11 +26,17 @@ const cargarProductosStorage = () => {
 
 const carrito = cargarProductosStorage();
 
-const generarHtmlCatalogo = () => {
+const generarHtmlCatalogo = async () => {
   const inputBusqueda = document.querySelector('.filtros [name="busqueda"]');
-  inputBusqueda.addEventListener('keyup', filtrarLibros);
+  inputBusqueda.addEventListener('keyup', async (e) => {
+    await filtrarLibros(e);
+  });
 
   let catalogo = document.querySelector('#catalogo');
+
+  let response = await fetch('../db.json');
+
+  const libros = await response.json();
 
   libros.forEach((libro) => {
     let elemento = document.createElement('div');
@@ -104,7 +47,7 @@ const generarHtmlCatalogo = () => {
       <div class="card__info">
         <p class="card__nombre">${libro.nombre}</p>
         <p class="card__precio">$${libro.precio}</p>
-      </div>      
+      </div>
       <button class="card__btn">
         <span class="material-icons">
           add_shopping_cart
@@ -114,17 +57,18 @@ const generarHtmlCatalogo = () => {
 
     catalogo.appendChild(elemento);
   });
+  cargarLibrosCarrito();
 };
 
-const buscarLibro = (id) => {
-  return libros.find((libro) => libro.id === id);
-};
-
-const filtrarLibros = (e) => {
+const filtrarLibros = async (e) => {
   let catalogo = document.querySelector('#catalogo');
   let value = e.target.value;
-  let librosFiltrados = libros.filter((el) =>
-    el.nombre.toLowerCase().includes(value.toLowerCase())
+
+  const response = await fetch('../db.json');
+  const libros = await response.json();
+
+  const librosFiltrados = libros.filter((libro) =>
+    libro.nombre.toLowerCase().includes(value.toLowerCase())
   );
 
   catalogo.innerHTML = '';
@@ -154,6 +98,13 @@ const filtrarLibros = (e) => {
   }
 };
 
+const buscarLibro = async (id) => {
+  const response = await fetch('../db.json');
+  const libros = await response.json();
+
+  return libros.find((libro) => libro.id === id);
+};
+
 const agregarLibro = (libro) => {
   if (carrito.some((item) => item.id === libro.id)) {
     let duplicado = carrito.find((item) => item.id === libro.id);
@@ -165,11 +116,11 @@ const agregarLibro = (libro) => {
   notificacionAgregado(libro);
 };
 
-const cargarLibrosCarrito = () => {
+const cargarLibrosCarrito = async () => {
   let cardBtns = document.querySelectorAll('.card__btn');
 
   cardBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       let itemId = parseInt(e.target.closest('.card').id.slice(5));
 
       btnCarrito.classList.add('agregado');
@@ -177,7 +128,8 @@ const cargarLibrosCarrito = () => {
         btnCarrito.classList.remove('agregado');
       }, 1000);
 
-      agregarLibro(buscarLibro(itemId));
+      let book = await buscarLibro(itemId);
+      agregarLibro(book);
       guardarProductosStorage();
       generarHtmlCarrito();
     });
@@ -186,11 +138,15 @@ const cargarLibrosCarrito = () => {
 
 const eliminarLibro = (id) => {
   if (carrito.some((el) => el.id === id)) {
-    if (carrito.find((el) => el.id === id).cantidad === 1) {
+    let eliminado = carrito.find((el) => el.id === id);
+
+    if (eliminado.cantidad === 1) {
+      notificacionEliminado(eliminado);
       let posicion = carrito.findIndex((libro) => libro.id === id);
       carrito.splice(posicion, 1);
     } else {
-      carrito.find((el) => el.id === id).cantidad--;
+      notificacionEliminado(eliminado);
+      eliminado.cantidad--;
     }
   }
 };
@@ -225,8 +181,8 @@ const actualizarCantidadCarrito = () => {
 
 const notificacionAgregado = (producto) => {
   Toastify({
-    text: `Se agrego al carrito: "<b>${producto.nombre}</b>"`,
-    duration: 3000,
+    text: `Se agregó al carrito: "<b>${producto.nombre}</b>"`,
+    duration: 2000,
     gravity: 'bottom',
     position: 'left',
     stopOnFocus: true,
@@ -234,6 +190,49 @@ const notificacionAgregado = (producto) => {
     style: {
       background: '#333333',
       border: '1px solid #444444',
+      borderRadius: '3px',
+      fontSize: '14px',
+      width: '400px',
+    },
+  }).showToast();
+};
+
+const notificacionEliminado = (producto) => {
+  Toastify({
+    text: `"<b>${producto.nombre}</b>" ha sido eliminado!`,
+    duration: 2000,
+    gravity: 'bottom',
+    position: 'left',
+    stopOnFocus: true,
+    escapeMarkup: false,
+    style: {
+      background: '#a64452',
+      border: '1px solid #444444',
+      borderRadius: '3px',
+      fontSize: '14px',
+    },
+  }).showToast();
+};
+
+const vaciarCarrito = () => {
+  if (carrito.length === 0) {
+    return;
+  }
+  carrito.splice(0);
+  guardarProductosStorage();
+  generarHtmlCarrito();
+
+  Toastify({
+    text: 'Se eliminaron todos los productos del carrito!',
+    duration: 2000,
+    gravity: 'bottom',
+    position: 'left',
+    stopOnFocus: true,
+    escapeMarkup: false,
+    style: {
+      background: '#a64452',
+      border: '1px solid #444444',
+      borderRadius: '3px',
       fontSize: '14px',
     },
   }).showToast();
@@ -242,8 +241,14 @@ const notificacionAgregado = (producto) => {
 const generarHtmlCarrito = () => {
   let contenedorCarrito = document.querySelector('.contenedor-carrito');
   let totalCarrito = document.querySelector('.total-carrito');
+  let vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
+
+  vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 
   const productosCarrito = cargarProductosStorage();
+
+  console.log('productos carrito', productosCarrito);
+  console.log(carrito);
 
   if (productosCarrito.length === 0) {
     contenedorCarrito.innerHTML = 'No hay productos en tu carrito.';

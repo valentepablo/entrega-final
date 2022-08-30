@@ -268,6 +268,29 @@ img {
   }
 }
 
+.vaciar-carrito {
+  background-color: #222;
+  color: inherit;
+  padding: 0.5em 1em;
+  border: 1px solid #444;
+  margin-top: 0.5em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+}
+
+.vaciar-carrito:hover {
+  color: #fff;
+}
+
+.vaciar-carrito span {
+  font-size: 16px;
+}
+
 @media screen and (max-width: 480px) {
   .carrito {
     width: 100%;
@@ -302,7 +325,7 @@ img {
   background-color: #222;
   border: 1px solid #444;
   padding: 0.5em;
-  margin-top: 1em;
+  margin-top: 0.5em;
   user-select: none;
 }
 
@@ -360,7 +383,7 @@ img {
   color: #aaa;
   background-color: transparent;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.4em;
   outline: none;
   border: none;
   cursor: pointer;

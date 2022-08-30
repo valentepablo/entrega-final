@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nombre": "El señor de los Anillos: Comunidad del Anillo",
+    "precio": 60,
+    "imagen": "lotr_comunidad.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "El señor de los Anillos: Las dos torres",
+    "precio": 60,
+    "imagen": "lotr_torres.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "El hobbit",
+    "precio": 55,
+    "imagen": "hobbit.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Harry Potter: El caliz de fuego",
+    "precio": 45,
+    "imagen": "hp_caliz.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Harry Potter: El prisionero de Azkaban",
+    "precio": 50,
+    "imagen": "hp_prisionero.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Las cronicas de Narnia",
+    "precio": 35,
+    "imagen": "narnia.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Game of Thrones",
+    "precio": 55,
+    "imagen": "game_of_thrones.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Alicia en el pais de las maravillas",
+    "precio": 40,
+    "imagen": "alicia.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Moby Dick",
+    "precio": 40,
+    "imagen": "moby_dick.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Los tres mosqueteros",
+    "precio": 45,
+    "imagen": "tres_mosqueteros.jpg"
+  }
+]
