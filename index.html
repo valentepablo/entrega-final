@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -27,24 +28,25 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <h1 class="text-center">Tienda de Libros</h1>
-    <div class="filtros">
-      <input
-        type="search"
-        name="busqueda"
-        id="busqueda"
-        placeholder="Buscar un libro..."
-        maximum-scale="1"
-      />
-    </div>
-    <div id="catalogo" class="catalogo text-center"></div>
+    <header class="header">
+      <h1 class="main-title text-center">Tienda de Libros</h1>
+      <div class="filtros">
+        <input
+          type="search"
+          name="busqueda"
+          id="busqueda"
+          placeholder="Buscar un libro..."
+          maximum-scale="1"
+        />
+      </div>
+    </header>
+    <div id="catalogo" class="catalogo"></div>
     <div id="carrito" class="carrito">
       <div class="total-carrito"></div>
       <span id="cerrar-carrito" class="material-icons md-36 carrito-icon">
         close
       </span>
       <button class="vaciar-carrito" id="vaciar-carrito">
-        Vaciar carrito
         <span class="material-icons md-16">delete</span>
       </button>
       <div class="contenedor-carrito">

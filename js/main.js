@@ -256,7 +256,11 @@ const generarHtmlCarrito = () => {
   console.log(carrito);
 
   if (productosCarrito.length === 0) {
-    contenedorCarrito.innerHTML = 'No hay productos en tu carrito.';
+    contenedorCarrito.innerHTML = `
+    <div class="product-container">
+      <h4>No hay productos en tu carrito.</h4>
+    </div>
+    `;
   } else {
     contenedorCarrito.innerHTML = '';
     productosCarrito.forEach((producto) => {
@@ -270,7 +274,7 @@ const generarHtmlCarrito = () => {
             <p class="libro__precio">$${producto.precio}</p>
             <p class="libro__cantidad">Cantidad: ${producto.cantidad}</p>
           </div>
-          <button class="libro__eliminar">&times</button>
+          <span class="material-icons md-16 libro__eliminar">close</span>
         `;
       contenedorCarrito.appendChild(elemento);
     });
