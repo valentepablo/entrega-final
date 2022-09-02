@@ -34,10 +34,6 @@ const generarHtmlCatalogo = async () => {
 
   let catalogo = document.querySelector('#catalogo');
 
-  // const options = {
-  //   method: 'GET',
-  //   headers: { 'content-type': 'application/json' },
-  // };
   let response = await fetch('./db.json');
 
   const libros = await response.json();
@@ -53,6 +49,7 @@ const generarHtmlCatalogo = async () => {
         <p class="card__precio">$${libro.precio}</p>
       </div>
       <button class="card__btn">
+        <p class="card__btn-text">Agregar</p>
         <span class="material-icons">
           add_shopping_cart
         </span>
@@ -94,6 +91,7 @@ const filtrarLibros = async (e) => {
           <span class="material-icons">
             add_shopping_cart
           </span>
+          
         </button>`;
 
       catalogo.appendChild(elemento);
@@ -126,11 +124,6 @@ const cargarLibrosCarrito = async () => {
   cardBtns.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
       let itemId = parseInt(e.target.closest('.card').id.slice(5));
-
-      btnCarrito.classList.add('agregado');
-      setTimeout(() => {
-        btnCarrito.classList.remove('agregado');
-      }, 1000);
 
       let book = await buscarLibro(itemId);
       agregarLibro(book);
@@ -251,9 +244,6 @@ const generarHtmlCarrito = () => {
   vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 
   const productosCarrito = cargarProductosStorage();
-
-  console.log('productos carrito', productosCarrito);
-  console.log(carrito);
 
   if (productosCarrito.length === 0) {
     contenedorCarrito.innerHTML = `
