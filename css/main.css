@@ -68,6 +68,9 @@ body {
   border: none;
   border-radius: 0.4rem;
   transition: all 0.1s ease-in;
+
+  appearance: searchfield;
+  -webkit-appearance: searchfield;
 }
 
 .filtros [name='busqueda']:focus,
