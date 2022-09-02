@@ -140,22 +140,7 @@ body {
 }
 
 .card__btn-text {
-  position: absolute;
-  opacity: 0;
-  transition: all 0.15s ease-in;
-}
-
-.card__btn > span {
-  transition: all 0.15s ease-in;
-}
-
-.card__btn:hover > .card__btn-text {
-  opacity: 1;
-  transform: translateX(-15px);
-}
-
-.card__btn:hover > span {
-  transform: translateX(35px);
+  display: none;
 }
 
 /********** CARD MEDIAQUERIES **********/
@@ -212,6 +197,25 @@ body {
   .card__precio {
     color: #adadb8;
     font-weight: 500;
+  }
+
+  .card__btn-text {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.15s ease-in;
+  }
+
+  .card__btn > span {
+    transition: all 0.15s ease-in;
+  }
+
+  .card__btn:hover > .card__btn-text {
+    opacity: 1;
+    transform: translateX(-15px);
+  }
+
+  .card__btn:hover > span {
+    transform: translateX(35px);
   }
 }
 
