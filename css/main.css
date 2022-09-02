@@ -200,6 +200,7 @@ body {
   }
 
   .card__btn-text {
+    display: inline;
     position: absolute;
     opacity: 0;
     transition: all 0.15s ease-in;
