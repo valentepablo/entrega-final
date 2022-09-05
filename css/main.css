@@ -452,3 +452,44 @@ body {
     text-align: center;
   }
 }
+
+.info-card {
+  position: absolute;
+  width: 350px;
+  color: #e3e3e5;
+  background-color: #18181b;
+  border: 1px solid #444;
+  opacity: 0;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 8px 20px 0 rgba(0, 0, 0, 0.5);
+
+  padding: 1em;
+
+  transition: opacity 0.15s ease-in;
+}
+
+.info-card > *:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.info-card h3 {
+  font-size: 22px;
+}
+
+.info-card .autor,
+.info-card .publicacion {
+  font-size: 14px;
+  color: #a5a5a5;
+  width: max-content;
+}
+
+.info-card .publicacion {
+  margin-top: 0.3rem;
+}
+
+.info-card .descripcion {
+  line-height: 1.2;
+  color: #a0a0a0;
+  padding-top: 1rem;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+}

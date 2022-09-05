@@ -56,8 +56,43 @@ const generarHtmlCatalogo = async () => {
       </button>
       `;
 
+    const img = elemento.querySelector('.card__img');
+
+    img.addEventListener('mouseenter', (e) => {
+      let infoCard = document.createElement('div');
+      infoCard.classList.add('info-card');
+      infoCard.innerHTML = `
+        <h3>${libro.nombre}</h3>
+        <p class="autor">Autor: <b>${libro.autor}</b></p>
+        <p class="publicacion">Fecha de publicacion: <b>${libro.publicacion}</b></p>
+        <p class="descripcion">${libro.descripcion}</p>
+        `;
+      document.body.appendChild(infoCard);
+
+      img.addEventListener('mousemove', (e) => {
+        let rect = infoCard.getBoundingClientRect();
+
+        infoCard.style.left = `${e.clientX + 10}px`;
+
+        if (e.clientY + rect.height >= window.innerHeight - 10) {
+          infoCard.style.top = `${e.clientY - rect.height}px`;
+        } else {
+          infoCard.style.top = `${e.clientY + 10}px`;
+        }
+      });
+
+      setTimeout(() => {
+        infoCard.style.opacity = 1;
+      }, 700);
+
+      img.addEventListener('mouseleave', (e) => {
+        infoCard.remove();
+      });
+    });
+
     catalogo.appendChild(elemento);
   });
+
   cargarLibrosCarrito();
 };
 
@@ -93,6 +128,40 @@ const filtrarLibros = async (e) => {
           </span>
           
         </button>`;
+
+      const img = elemento.querySelector('.card__img');
+
+      img.addEventListener('mouseenter', (e) => {
+        let infoCard = document.createElement('div');
+        infoCard.classList.add('info-card');
+        infoCard.innerHTML = `
+        <h3>${libro.nombre}</h3>
+        <p class="autor">Autor: <b>${libro.autor}</b></p>
+        <p class="publicacion">Fecha de publicacion: <b>${libro.publicacion}</b></p>
+        <p class="descripcion">${libro.descripcion}</p>
+        `;
+        document.body.appendChild(infoCard);
+
+        img.addEventListener('mousemove', (e) => {
+          let rect = infoCard.getBoundingClientRect();
+
+          infoCard.style.left = `${e.clientX + 10}px`;
+
+          if (e.clientY + rect.height >= window.innerHeight - 10) {
+            infoCard.style.top = `${e.clientY - rect.height}px`;
+          } else {
+            infoCard.style.top = `${e.clientY + 10}px`;
+          }
+        });
+
+        setTimeout(() => {
+          infoCard.style.opacity = 1;
+        }, 700);
+
+        img.addEventListener('mouseleave', (e) => {
+          infoCard.remove();
+        });
+      });
 
       catalogo.appendChild(elemento);
     });

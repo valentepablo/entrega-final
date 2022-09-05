@@ -3,60 +3,90 @@
     "id": 1,
     "nombre": "El señor de los Anillos: Comunidad del Anillo",
     "precio": 60,
-    "imagen": "lotr_comunidad.jpg"
+    "imagen": "lotr_comunidad.jpg",
+    "autor": "J.R.R. Tolkien",
+    "publicacion": "29 de Julio, 1954",
+    "descripcion": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en las Grietas del Destino. Consciente de la importancia de su misión, Frodo abandona la Comarca e inicia el camino hacia Mordor con la compañía de inesperada de Sam, Pippin y Merry.  Pero sólo con la ayuda de Aragorn conseguirán vencer a los Jinetes Negros y alcanzar el refugio de la Casa de Elrond en Rivendel."
   },
   {
     "id": 2,
     "nombre": "El señor de los Anillos: Las dos torres",
     "precio": 60,
-    "imagen": "lotr_torres.jpg"
+    "imagen": "lotr_torres.jpg",
+    "autor": "J.R.R. Tolkien",
+    "publicacion": "11 de Noviembre, 1954",
+    "descripcion": "La Compañía se ha disuelto y sus integrantes emprenden caminos separados. Frodo y Sam continúan solos su viaje a lo largo del río Anduin, perseguidos por la sombra misteriosa de un ser extraño que también ambiciona la posesión del Anillo. Mientras, hombres, elfos y enanos se preparan para la batalla final contra las fuerzas del Señor del Mal."
   },
   {
     "id": 3,
     "nombre": "El hobbit",
     "precio": 55,
-    "imagen": "hobbit.jpg"
+    "imagen": "hobbit.jpg",
+    "autor": "J.R.R. Tolkien",
+    "publicacion": "21 de Septiembre, 1937",
+    "descripcion": "El Hobbit, es una novela de J.R.R. Tolkien publicada en el año 1937. En ella se relata la historia de Bilbo Bolsón, y de su viaje a la Montaña Solitaria junto con Gandalf y Thorin y Compañía para recuperar el tesoro custodiado por el dragón Smaug y recuperar también el reino de Erebor. El libro tiene un tono infantil comparado con el de su secuela, El Señor de los Anillos. Esto se debe a que El Hobbit fue una historia que Tolkien creó para sus hijos, y, el Señor de los Anillos, lo escribió después a petición de una continuación del Hobbit."
   },
   {
     "id": 4,
     "nombre": "Harry Potter: El caliz de fuego",
     "precio": 45,
-    "imagen": "hp_caliz.jpg"
+    "imagen": "hp_caliz.jpg",
+    "autor": "J.K. Rowling",
+    "publicacion": "8 de Julio, 2000",
+    "descripcion": "Tras otro abominable verano con los Dursley, Harry se dispone a iniciar el cuarto curso en Hogwarts, la famosa escuela de magia y hechicería. A sus catorce años, a Harry le gustaría ser un joven mago como los demás y dedicarse a aprender nuevos sortilegios, encontrarse con sus amigos Ron y Hermione y asistir con ellos a los Mundiales de quidditch. Sin embargo, al llegar al colegio le espera una gran sorpresa que lo obligará a enfrentarse a los desafíos más temibles de toda su vida. Si logra superarlos, habrá demostrado que ya no es un niño y que está preparado para vivir las nuevas y emocionantes experiencias que el futuro le depara."
   },
   {
     "id": 5,
     "nombre": "Harry Potter: El prisionero de Azkaban",
     "precio": 50,
-    "imagen": "hp_prisionero.jpg"
+    "imagen": "hp_prisionero.jpg",
+    "autor": "J.K. Rowling",
+    "publicacion": "8 de Julio, 1999",
+    "descripcion": "De la prisión de Azkaban se ha escapado un terrible villano, Sirius Black, un asesino en serie que fue cómplice de lord Voldemort y que, dicen los rumores, quiere vengarse de Harry por haber destruido a su maestro. Por si esto fuera poco, entran en acción los dementores, unos seres abominables capaces de robarles la felicidad a los magos y de eliminar todo recuerdo hermoso de aquellos que se atreven a acercárseles. El desafío es enorme, pero Harry, Ron y Hermione son capaces de enfrentarse a todo esto y mucho más."
   },
   {
     "id": 6,
     "nombre": "Las cronicas de Narnia",
     "precio": 35,
-    "imagen": "narnia.jpg"
+    "imagen": "narnia.jpg",
+    "autor": "C.S. Lewis",
+    "publicacion": "16 de Octubre, 1950",
+    "descripcion": "Las Crónicas de Narnia es una heptalogía de libros infantiles escrita por C.S. Lewis entre 1939 y 1954. Relatan las aventuras de los hermanos Pevensie en Narnia, tierra de fantasía y magia inventada por el autor y poblada por animales parlantes y otras criaturas mitológicas que se ven envueltas en la eterna lucha entre el bien y el mal. Aslan, un legendario león creador del país de Narnia, se constituye como el auténtico protagonista de todos los relatos, si bien los cuatro hermanos Peter, Susan, Lucy y Edmund Pevensie, aunque ausentes directamente en dos títulos, sirven de hilo conductor. Obra fundamental de su autor."
   },
   {
     "id": 7,
     "nombre": "Game of Thrones",
     "precio": 55,
-    "imagen": "game_of_thrones.jpg"
+    "imagen": "game_of_thrones.jpg",
+    "autor": "George R.R. Martin",
+    "publicacion": "1 de Agosto, 1996",
+    "descripcion": "Tras el largo verano, el invierno se acerca a los Siete Reinos. Lord Eddars Stark, señor de Invernalia, deja sus dominios para unirse a la corte del rey Robert Baratheon el Usurpador, hombre díscolo y otrora guerrero audaz cuyas mayores aficiones son comer, beber y engendrar bastardos. Eddard Stark desempeñará el cargo de Mano del Rey e intentará desentrañar una maraña de intrigas que pondrá en peligro su vida... y la de los suyos. En un mundo cuyas estaciones duran décadas y en el que retazos de una magia inmemorial y olvidada surgen en los rincones más sombrios y maravillosos, la traición y la lealtad, la compasión y la sed de venganza, el amor y el poder hacen del juego de tronos una poderosa trampa que atrapa en sus fauces a los personajes... y al lector."
   },
   {
     "id": 8,
     "nombre": "Alicia en el pais de las maravillas",
     "precio": 40,
-    "imagen": "alicia.jpg"
+    "imagen": "alicia.jpg",
+    "autor": "Lewis Carroll",
+    "publicacion": "Noviembre, 1865",
+    "descripcion": "Escrito en 1865, Alicia en el País de las Maravillas es un clásico no sólo de la literatura juvenil, sino de la literatura en general. Popularizado por las decenas de versiones que de él se han llevado a cabo, el relato que el reverendo Charles Dodgson, verdadero nombre de Lewis Carrol, escribiera para la niña Alicia Liddell, de diez años, es un delicioso entramado de situaciones verosímiles y absurdas, metamorfosis insólitas de seres y ambientes, juegos con el lenguaje y con la lógica y asociaciones oníricas que hacen de él un libro inolvidable que habría de tener una secuela equiparable, cuando no superior, en Alicia a través del espejo."
   },
   {
     "id": 9,
     "nombre": "Moby Dick",
     "precio": 40,
-    "imagen": "moby_dick.jpg"
+    "imagen": "moby_dick.jpg",
+    "autor": "Herman Melville",
+    "publicacion": "18 de Octubre, 1851",
+    "descripcion": "Moby Dick recoge la tradición romántica y gótica dando forma a un épico poema en singular prosa que ha acabado por ocupar en Estados Unidos el puesto de gran novela nacional. La historia de la obsesiva persecución de una ballena por el Capitán Ahab se ha convertido en ítem imprescindible de la cultura universal. El lector no encontrará obra más filosófica, tratado sobre el mar más erudito y, algo no menos importante, novela de aventuras más épica que la presente."
   },
   {
     "id": 10,
     "nombre": "Los tres mosqueteros",
     "precio": 45,
-    "imagen": "tres_mosqueteros.jpg"
+    "imagen": "tres_mosqueteros.jpg",
+    "autor": "Alexandre Dumas",
+    "publicacion": "Julio, 1844",
+    "descripcion": "La acción se sitúa durante el reinado de Luis XIII, en Francia. D'Artagnan es un joven de 18 años, hijo de un noble gascón, antiguo mosquetero, de escasos recursos económicos. Se dirige a París con una carta de su padre para el señor de Treville, jefe de los Mosqueteros del Rey. En una posada, durante su ruta, D'Artagnan desafía a un caballero que acompaña a una bella y misteriosa dama. Los tres mosqueteros es, casi con toda seguridad, la obra más conocida de su autor, el escritor francés Alejandro Dumas. A lo largo del último siglo, esta novela ha sido llevada al cine y la televisión en numerosas ocasiones."
   }
 ]
