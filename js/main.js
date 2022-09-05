@@ -81,7 +81,11 @@ const generarHtmlCatalogo = async () => {
       let infoCard = document.querySelector('.info-card');
       let rect = infoCard.getBoundingClientRect();
 
-      infoCard.style.left = `${e.clientX + 10}px`;
+      if (e.clientX + rect.width >= window.innerWidth - 30) {
+        infoCard.style.left = `${e.clientX - rect.width - 5}px`;
+      } else {
+        infoCard.style.left = `${e.clientX + 10}px`;
+      }
 
       if (e.clientY + rect.height >= window.innerHeight - 10) {
         if (rect.top <= 0) {
@@ -92,8 +96,6 @@ const generarHtmlCatalogo = async () => {
       } else {
         infoCard.style.top = `${e.clientY + 10}px`;
       }
-
-      console.log(rect);
     });
 
     img.addEventListener('mouseleave', (e) => {
