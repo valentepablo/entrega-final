@@ -9,6 +9,7 @@ body {
   font-family: inherit;
   color: #efeff1;
   background-color: #0e0e10;
+  position: relative;
 }
 
 .header {
