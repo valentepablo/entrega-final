@@ -468,6 +468,12 @@ body {
   transition: opacity 0.15s ease-in;
 }
 
+@media screen and (max-width: 480px) {
+  .info-card {
+    width: min-content;
+  }
+}
+
 .info-card > *:not(:first-child) {
   margin-top: 1rem;
 }

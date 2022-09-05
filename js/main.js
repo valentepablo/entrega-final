@@ -72,12 +72,17 @@ const generarHtmlCatalogo = async () => {
       img.addEventListener('mousemove', (e) => {
         let rect = infoCard.getBoundingClientRect();
 
-        infoCard.style.left = `${e.clientX + 10}px`;
-
-        if (e.clientY + rect.height >= window.innerHeight - 10) {
-          infoCard.style.top = `${e.clientY - rect.height}px`;
+        if (window.innerWidth <= 480) {
+          infoCard.style.bottom = '50%';
+          infoCard.style.left = '50%';
+          infoCard.style.transform = 'translate(-50%, 50%)';
         } else {
-          infoCard.style.top = `${e.clientY + 10}px`;
+          infoCard.style.left = `${e.clientX + 10}px`;
+          if (e.clientY + rect.height >= window.innerHeight - 10) {
+            infoCard.style.top = `${e.clientY - rect.height}px`;
+          } else {
+            infoCard.style.top = `${e.clientY + 10}px`;
+          }
         }
       });
 
